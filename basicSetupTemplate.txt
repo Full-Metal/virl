@@ -1,5 +1,6 @@
 term no mon
 conf t
+service password-encryption
 no ip domain-lookup
 no logg con
 hostname 
