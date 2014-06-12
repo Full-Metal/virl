@@ -37,16 +37,16 @@ no ipv6 cef
 !
 multilink bundle-name authenticated
 !
-!         
+!
 cts logging verbose
 !
 !
-username cisco privilege 15 secret 5 $1$6uqv$PjkT.OynIMDGEc75ieLOT1
+username cisco privilege 15 secret 5 $1$JRUS$7cJGckDOzgT6IeCSp14uP.
 !
 redundancy
 !
 !
-! 
+!         
 !
 !
 !
@@ -82,7 +82,7 @@ interface GigabitEthernet0/3
  duplex auto
  speed auto
  media-type rj45
-!         
+!
 ip forward-protocol nd
 !
 !
