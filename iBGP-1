@@ -2,7 +2,7 @@ service timestamps debug datetime msec
 service timestamps log datetime msec
 service password-encryption
 !
-hostname iBGP-1
+hostname iBGP-2
 !
 boot-start-marker
 boot-end-marker
@@ -41,7 +41,7 @@ multilink bundle-name authenticated
 cts logging verbose
 !
 !
-username cisco privilege 15 secret 5 $1$JRUS$7cJGckDOzgT6IeCSp14uP.
+username cisco privilege 15 secret 5 $1$Iij3$rfkgXlTuLW7OSQUVWwT.9/
 !
 redundancy
 !
@@ -72,12 +72,6 @@ interface GigabitEthernet0/1
  media-type rj45
 !
 interface GigabitEthernet0/2
- no ip address
- duplex auto
- speed auto
- media-type rj45
-!
-interface GigabitEthernet0/3
  no ip address
  duplex auto
  speed auto
