@@ -41,12 +41,12 @@ multilink bundle-name authenticated
 cts logging verbose
 !
 !
-username cisco privilege 15 secret 5 $1$/QdN$QlPAoyOu9DzYYV9svf2QK0
+username cisco privilege 15 secret 5 $1$Iij3$rfkgXlTuLW7OSQUVWwT.9/
 !
 redundancy
 !
 !
-! 
+!         
 !
 !
 !
@@ -67,14 +67,12 @@ interface GigabitEthernet0/0
 !
 interface GigabitEthernet0/1
  no ip address
- shutdown
  duplex auto
  speed auto
  media-type rj45
 !
 interface GigabitEthernet0/2
  no ip address
- shutdown
  duplex auto
  speed auto
  media-type rj45
