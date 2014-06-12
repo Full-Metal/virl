@@ -2,7 +2,7 @@ service timestamps debug datetime msec
 service timestamps log datetime msec
 service password-encryption
 !
-hostname iBGP-2
+hostname iBGP-3
 !
 boot-start-marker
 boot-end-marker
@@ -41,7 +41,7 @@ multilink bundle-name authenticated
 cts logging verbose
 !
 !
-username cisco privilege 15 secret 5 $1$Iij3$rfkgXlTuLW7OSQUVWwT.9/
+username cisco privilege 15 secret 5 $1$al7J$d21HrzcRkDAjAVnyux34V.
 !
 redundancy
 !
@@ -58,6 +58,12 @@ redundancy
 !
 !
 !
+!
+interface Loopback100
+ ip address 10.0.0.1 255.255.255.255
+!
+interface Loopback110
+ ip address 10.0.0.2 255.255.255.255
 !
 interface GigabitEthernet0/0
  ip address dhcp
@@ -77,14 +83,28 @@ interface GigabitEthernet0/2
  speed auto
  media-type rj45
 !
+interface GigabitEthernet0/3
+ ip address 192.168.0.1 255.255.255.252
+ duplex auto
+ speed auto
+ media-type rj45
+!
+router bgp 100
+ bgp log-neighbor-changes
+ network 10.0.0.1 mask 255.255.255.255
+ network 10.0.0.2 mask 255.255.255.255
+ neighbor 192.168.0.2 remote-as 101
+!
 ip forward-protocol nd
 !
 !
 no ip http server
 no ip http secure-server
+!         
 !
 !
-!
+access-list 1 remark IP Debugging ACL
+access-list 1 permit 192.168.0.1
 !
 control-plane
 !
