@@ -46,7 +46,7 @@ username cisco privilege 15 secret 5 $1$al7J$d21HrzcRkDAjAVnyux34V.
 redundancy
 !
 !
-!         
+! 
 !
 !
 !
@@ -60,6 +60,7 @@ redundancy
 !
 !
 interface Loopback100
+ description BGP SOURCE INTERFACE
  ip address 10.0.0.1 255.255.255.255
 !
 interface Loopback110
@@ -93,14 +94,16 @@ router bgp 100
  bgp log-neighbor-changes
  network 10.0.0.1 mask 255.255.255.255
  network 10.0.0.2 mask 255.255.255.255
+ neighbor 10.0.0.11 remote-as 101
  neighbor 192.168.0.2 remote-as 101
+ neighbor 192.168.0.2 password 7 00071A15075409011F
 !
 ip forward-protocol nd
 !
 !
 no ip http server
 no ip http secure-server
-!         
+!
 !
 !
 access-list 1 remark IP Debugging ACL
@@ -173,4 +176,4 @@ line vty 0 4
 !
 no scheduler allocate
 !
-end
+end       
